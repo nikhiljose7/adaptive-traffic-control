@@ -1,0 +1,9 @@
+gymnasium
+stable-baselines3
+sumolib
+traci
+numpy
+pandas
+shimmy
+streamlit
+altair

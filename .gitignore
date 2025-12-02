@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+.DS_Store
+venv/
+env/
+.idea/
+.vscode/
+*.zip
+!ppo_traffic_agent.zip
