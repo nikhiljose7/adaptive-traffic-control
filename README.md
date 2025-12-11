@@ -2,7 +2,6 @@
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
 [![SUMO](https://img.shields.io/badge/SUMO-1.15%2B-green.svg)](https://eclipse.dev/sumo/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 An intelligent traffic signal control system powered by Reinforcement Learning (PPO) and SUMO (Simulation of Urban MObility). This system optimizes traffic light timings to reduce congestion and waiting times through adaptive learning.
 
@@ -139,10 +138,6 @@ Contributions are welcome! Here's how you can help:
 - Add performance comparison tools
 - Improve reward function design
 - Create more complex traffic patterns
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👨‍💻 Author
 
