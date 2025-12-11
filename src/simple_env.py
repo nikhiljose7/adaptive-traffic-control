@@ -61,8 +61,22 @@ class TrafficSignalEnv(gym.Env):
     def reset(self, seed=None, options=None):
         super().reset(seed=seed)
         
-        if self.step_counter > 0:
-            traci.close()
+        # Close any existing connection for this label
+        label = str(self.run_id + 1)
+        try:
+            if traci.isLoaded():
+                traci.close()
+        except:
+            pass
+        
+        # Try to close connection by label if it exists
+        try:
+            if hasattr(traci, 'getConnection'):
+                existing = traci.getConnection(label)
+                if existing is not None:
+                    existing.close()
+        except:
+            pass
             
         self.run_id += 1
         sumo_cmd = [self.sumo_binary, "-n", self.net_file, "-r", self.route_file, "--no-step-log", "true", "--waiting-time-memory", "1000"]
@@ -73,7 +87,7 @@ class TrafficSignalEnv(gym.Env):
             if os.path.exists(view_file):
                 sumo_cmd.extend(["-g", view_file])
                 
-        # Start TRACI
+        # Start TRACI with unique label
         traci.start(sumo_cmd, label=str(self.run_id))
         self.conn = traci.getConnection(str(self.run_id))
         
@@ -139,4 +153,10 @@ class TrafficSignalEnv(gym.Env):
         return -(total_queue + total_wait)
 
     def close(self):
-        traci.close()
+        try:
+            if traci.isLoaded():
+                traci.close()
+        except Exception as e:
+            # Silently handle already closed connections
+            pass
+

@@ -1,10 +1,48 @@
+# Python
 __pycache__/
+*.py[cod]
+*$py.class
 *.pyc
-.env
-.DS_Store
+*.pyo
+*.pyd
+.Python
+
+# Virtual Environments
 venv/
 env/
+ENV/
+.venv
+
+# IDE
+.env
+.DS_Store
 .idea/
 .vscode/
+
+# Trained Models (keep only the main one)
 *.zip
 !ppo_traffic_agent.zip
+
+# Temporary files
+temp/
+*.tmp
+*.bak
+*.swp
+*~
+
+# Word temporary files
+~$*.docx
+~$*.doc
+
+# Documentation/Reports (keep these local)
+*.docx
+*.doc
+*.pdf
+
+
+# SUMO output files
+*.xml.log
+*.sumocfg~
+tripinfo.xml
+summary.xml
+
